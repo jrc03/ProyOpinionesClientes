@@ -1,0 +1,49 @@
+# Build output
+bin/
+obj/
+Debug/
+Release/
+x64/
+x86/
+
+# .NET artifacts
+*.user
+*.suo
+*.rsuser
+*.userosscache
+*.sln.docstates
+TestResults/
+coverage/
+*.coverage
+*.coveragexml
+
+# NuGet
+*.nupkg
+packages/
+project.lock.json
+project.assets.json
+
+# Visual Studio
+.vs/
+*.vssscc
+*.vspscc
+
+# Rider / JetBrains
+.idea/
+*.DotSettings.user
+
+# VS Code
+.vscode/
+
+# OS files
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# Local environment/config overrides
+*.local.json
+*.env
+*.env.*
+
+# Logs
+*.log
