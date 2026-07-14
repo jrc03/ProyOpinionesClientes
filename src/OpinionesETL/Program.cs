@@ -1,57 +1,63 @@
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Configuration;
+using OpinionesETL;
+using OpinionesETL.Extractors;
+using OpinionesETL.Loaders;
 using OpinionesETL.Pipeline;
 using OpinionesETL.Reports;
+using OpinionesETL.Workers;
 
-var config = new ConfigurationBuilder()
-    .SetBasePath(AppContext.BaseDirectory)
-    .AddJsonFile("appsettings.json", optional: false)
-    .Build();
+var options = new HostApplicationBuilderSettings
+{
+    Args = args,
+    ContentRootPath = AppContext.BaseDirectory
+};
 
-var connectionString = config.GetConnectionString("SistemaOpiniones")
+var builder = Host.CreateApplicationBuilder(options);
+
+var connectionString = builder.Configuration.GetConnectionString("SistemaOpiniones")
     ?? throw new InvalidOperationException("Falta la cadena de conexión 'SistemaOpiniones' en appsettings.json");
 
-var carpetaDatos = args.Length > 0 ? args[0] : EncontrarCarpetaDatos(config["RutaCarpetaDatos"]);
+var rutaConfigurada = builder.Configuration["RutaCarpetaDatos"];
+var carpetaDatos = EncontrarCarpetaDatos(rutaConfigurada);
 
-Console.WriteLine("=== Sistema de Análisis de Opiniones de Clientes - Proceso ETL ===");
-Console.WriteLine($"Carpeta de datos: {carpetaDatos}");
-Console.WriteLine();
+var apiComentariosSocialesUrl = builder.Configuration["ApiComentariosSocialesUrl"]
+    ?? throw new InvalidOperationException("Falta configurar ApiComentariosSocialesUrl en appsettings.json");
 
-var pipeline = new EtlPipeline(connectionString, carpetaDatos);
-var resultados = await pipeline.EjecutarAsync();
+int.TryParse(builder.Configuration["EtlIntervaloSegundos"], out var intervaloSegundos);
+if (intervaloSegundos <= 0) intervaloSegundos = 120;
 
-Console.WriteLine();
-Console.WriteLine("========== RESULTADO DEL PROCESO ETL POR FUENTE ==========");
-var totalLeidos = 0;
-var totalInsertados = 0;
-var totalDuplicados = 0;
-var totalRechazadosProducto = 0;
-var totalRechazadosInvalidos = 0;
+int.TryParse(builder.Configuration["EtlDelayInicialSegundos"], out var delayInicialSegundos);
+if (delayInicialSegundos < 0) delayInicialSegundos = 3;
 
-foreach (var r in resultados)
+builder.Services.Configure<EtlOptions>(opt =>
 {
-    Console.WriteLine($"- {r.NombreFuente}");
-    Console.WriteLine($"    Leídos:                          {r.Leidos}");
-    Console.WriteLine($"    Insertados:                      {r.Insertados}");
-    Console.WriteLine($"    Duplicados omitidos:             {r.DuplicadosOmitidos}");
-    Console.WriteLine($"    Rechazados (producto inválido):  {r.RechazadosSinProducto}");
-    Console.WriteLine($"    Rechazados (datos inválidos):    {r.RechazadosDatosInvalidos}");
-    Console.WriteLine($"    Clientes con Id inválido (-> NULL): {r.ClientesNulificados}");
+    opt.ConnectionString = connectionString;
+    opt.CarpetaDatos = carpetaDatos;
+    opt.ApiComentariosSocialesUrl = apiComentariosSocialesUrl;
+    opt.EtlIntervaloSegundos = intervaloSegundos;
+    opt.EtlDelayInicialSegundos = delayInicialSegundos;
+    
+    // Binding de nombres de CSV configurables con fallbacks
+    opt.ClientesCsv = builder.Configuration["ClientesCsv"] ?? "clients.csv";
+    opt.ProductosCsv = builder.Configuration["ProductosCsv"] ?? "products.csv";
+    opt.EncuestasCsv = builder.Configuration["EncuestasCsv"] ?? "surveys_part1.csv";
+});
 
-    totalLeidos += r.Leidos;
-    totalInsertados += r.Insertados;
-    totalDuplicados += r.DuplicadosOmitidos;
-    totalRechazadosProducto += r.RechazadosSinProducto;
-    totalRechazadosInvalidos += r.RechazadosDatosInvalidos;
-}
+builder.Services.AddHttpClient<SocialCommentsApiExtractor>(client =>
+{
+    client.BaseAddress = new Uri(apiComentariosSocialesUrl);
+    client.Timeout = TimeSpan.FromSeconds(30);
+});
 
-Console.WriteLine("------------------------------------------------------------");
-Console.WriteLine(
-    $"TOTAL leídos: {totalLeidos} | insertados: {totalInsertados} | duplicados: {totalDuplicados} | " +
-    $"rechazados por producto: {totalRechazadosProducto} | rechazados por datos: {totalRechazadosInvalidos}");
-Console.WriteLine("============================================================");
+builder.Services.AddTransient<DimensionLoader>();
+builder.Services.AddTransient<EtlPipeline>();
+builder.Services.AddTransient<ReportService>();
+builder.Services.AddHostedService<EtlBackgroundWorker>();
 
-var reportService = new ReportService(connectionString);
-await reportService.ImprimirResumenAsync();
+var host = builder.Build();
+await host.RunAsync();
 
 static string EncontrarCarpetaDatos(string? rutaConfigurada)
 {
@@ -68,6 +74,5 @@ static string EncontrarCarpetaDatos(string? rutaConfigurada)
     }
 
     throw new DirectoryNotFoundException(
-        "No se encontró la carpeta 'Data' con los archivos CSV de origen. " +
-        "Pásala como argumento: dotnet run -- \"ruta/a/Data\"");
+        "No se encontró la carpeta Data. Indica la ruta al ejecutar o en appsettings.json");
 }
