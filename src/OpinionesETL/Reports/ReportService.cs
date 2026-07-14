@@ -1,11 +1,21 @@
+using System.Text;
 using Dapper;
 using Microsoft.Data.SqlClient;
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 
 namespace OpinionesETL.Reports;
 
-public class ReportService(string connectionString)
+public class ReportService
 {
-    private readonly string _connectionString = connectionString;
+    private readonly string _connectionString;
+    private readonly ILogger<ReportService> _logger;
+
+    public ReportService(IOptions<EtlOptions> options, ILogger<ReportService> logger)
+    {
+        _connectionString = options.Value.ConnectionString;
+        _logger = logger;
+    }
 
     public async Task ImprimirResumenAsync()
     {
@@ -14,19 +24,20 @@ public class ReportService(string connectionString)
 
         var total = await conn.ExecuteScalarAsync<int>("SELECT COUNT(*) FROM Opiniones");
 
-        Console.WriteLine();
-        Console.WriteLine("========== RESUMEN DE OPINIONES EN BASE DE DATOS ==========");
-        Console.WriteLine($"Total de opiniones almacenadas: {total}");
+        var sb = new StringBuilder();
+        sb.AppendLine();
+        sb.AppendLine("Resumen en base de datos");
+        sb.AppendLine($"Opiniones guardadas: {total}");
+        sb.AppendLine();
+        sb.AppendLine("Clasificación");
 
-        Console.WriteLine();
-        Console.WriteLine("-- Clasificación global --");
         var clasificacion = await conn.QueryAsync(
             "SELECT Clasificacion, COUNT(*) AS Cantidad FROM Opiniones GROUP BY Clasificacion ORDER BY Cantidad DESC");
         foreach (var fila in clasificacion)
-            Console.WriteLine($"  {fila.Clasificacion,-10} {fila.Cantidad,6}");
+            sb.AppendLine($"  {fila.Clasificacion,-10} {fila.Cantidad,6}");
 
-        Console.WriteLine();
-        Console.WriteLine("-- Top 10 productos por % de satisfacción (mínimo 3 opiniones) --");
+        sb.AppendLine();
+        sb.AppendLine("Productos con mejor satisfacción");
         var topProductos = await conn.QueryAsync("""
             SELECT TOP 10 IdProducto, NombreProducto, TotalOpiniones, PorcentajeSatisfaccion, PuntajePromedio
             FROM vw_ResumenPorProducto
@@ -34,11 +45,11 @@ public class ReportService(string connectionString)
             ORDER BY PorcentajeSatisfaccion DESC;
             """);
         foreach (var fila in topProductos)
-            Console.WriteLine(
+            sb.AppendLine(
                 $"  [{fila.IdProducto,4}] {fila.NombreProducto,-20} " +
                 $"Opiniones: {fila.TotalOpiniones,4}  Satisfacción: {fila.PorcentajeSatisfaccion,6}%  " +
                 $"Promedio: {fila.PuntajePromedio}");
 
-        Console.WriteLine("============================================================");
+        _logger.LogInformation(sb.ToString());
     }
 }
