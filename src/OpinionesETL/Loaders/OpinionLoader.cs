@@ -7,6 +7,7 @@ public static class OpinionLoader
 {
     public static async Task<bool> InsertarAsync(
         SqlConnection conn,
+        SqlTransaction? transaction,
         string? origenId,
         string? idCliente,
         string idProducto,
@@ -25,7 +26,7 @@ public static class OpinionLoader
                 (IdCliente, IdProducto, IdFuente, Fecha, Comentario, Clasificacion, PuntajeSatisfaccion, OrigenId)
             VALUES
                 (@idCliente, @idProducto, @idFuente, @fecha, @comentario, @clasificacion, @puntaje, @origenId);
-            """, new { origenId, idCliente, idProducto, idFuente, fecha, comentario, clasificacion, puntaje });
+            """, new { origenId, idCliente, idProducto, idFuente, fecha, comentario, clasificacion, puntaje }, transaction);
 
         return filas > 0;
     }
