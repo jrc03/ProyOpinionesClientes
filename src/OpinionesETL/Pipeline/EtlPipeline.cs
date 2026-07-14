@@ -1,5 +1,6 @@
 using Dapper;
 using Microsoft.Data.SqlClient;
+using Microsoft.Extensions.Options;
 using OpinionesETL.Extractors;
 using OpinionesETL.Loaders;
 using OpinionesETL.Models;
@@ -8,16 +9,25 @@ using OpinionesETL.Validation;
 
 namespace OpinionesETL.Pipeline;
 
-public class EtlPipeline(string connectionString, string carpetaDatos)
+public class EtlPipeline
 {
-    private readonly string _connectionString = connectionString;
-    private readonly string _carpetaDatos = carpetaDatos;
-    private readonly DimensionLoader _dimensionLoader = new DimensionLoader(connectionString);
+    private readonly EtlOptions _options;
+    private readonly SocialCommentsApiExtractor _apiExtractor;
+    private readonly DimensionLoader _dimensionLoader;
+
+    public EtlPipeline(
+        IOptions<EtlOptions> options,
+        SocialCommentsApiExtractor apiExtractor,
+        DimensionLoader dimensionLoader)
+    {
+        _options = options.Value;
+        _apiExtractor = apiExtractor;
+        _dimensionLoader = dimensionLoader;
+    }
 
     public async Task<List<EtlSourceResult>> EjecutarAsync()
     {
-        // Las dimensiones se cargan primero para validar las FK de Opiniones.
-        var clientesCrudos = CsvExtractor.Leer<ClienteRecord>(Path.Combine(_carpetaDatos, "clients.csv"));
+        var clientesCrudos = CsvExtractor.Leer<ClienteRecord>(Path.Combine(_options.CarpetaDatos, _options.ClientesCsv));
         var clientes = clientesCrudos
             .Where(c => !string.IsNullOrWhiteSpace(c.IdCliente) && !string.IsNullOrWhiteSpace(c.Nombre))
             .GroupBy(c => c.IdCliente.Trim())
@@ -28,9 +38,8 @@ public class EtlPipeline(string connectionString, string carpetaDatos)
                 Email = string.IsNullOrWhiteSpace(g.First().Email) ? null : g.First().Email!.Trim(),
             })
             .ToList();
-        await _dimensionLoader.CargarClientesAsync(clientes);
 
-        var productosCrudos = CsvExtractor.Leer<ProductoRecord>(Path.Combine(_carpetaDatos, "products.csv"));
+        var productosCrudos = CsvExtractor.Leer<ProductoRecord>(Path.Combine(_options.CarpetaDatos, _options.ProductosCsv));
         var productos = productosCrudos
             .Where(p => !string.IsNullOrWhiteSpace(p.IdProducto) && !string.IsNullOrWhiteSpace(p.Nombre))
             .GroupBy(p => p.IdProducto.Trim())
@@ -41,19 +50,34 @@ public class EtlPipeline(string connectionString, string carpetaDatos)
                 Categoria = string.IsNullOrWhiteSpace(g.First().Categoria) ? null : g.First().Categoria!.Trim(),
             })
             .ToList();
-        await _dimensionLoader.CargarProductosAsync(productos);
 
-        using var connValidacion = new SqlConnection(_connectionString);
-        await connValidacion.OpenAsync();
-        var idsClientes = await connValidacion.QueryAsync<string>("SELECT IdCliente FROM Clientes");
-        var idsProductos = await connValidacion.QueryAsync<string>("SELECT IdProducto FROM Productos");
+        using var conn = new SqlConnection(_options.ConnectionString);
+        await conn.OpenAsync();
+
+        // 1. Cargar dimensiones dentro de una transacción compartida
+        using (var transDimensiones = conn.BeginTransaction())
+        {
+            try
+            {
+                await _dimensionLoader.CargarClientesAsync(conn, transDimensiones, clientes);
+                await _dimensionLoader.CargarProductosAsync(conn, transDimensiones, productos);
+                await transDimensiones.CommitAsync();
+            }
+            catch (Exception)
+            {
+                await transDimensiones.RollbackAsync();
+                throw;
+            }
+        }
+
+        // 2. Obtener datos para la validación referencial en la misma conexión
+        var idsClientes = await conn.QueryAsync<string>("SELECT IdCliente FROM Clientes");
+        var idsProductos = await conn.QueryAsync<string>("SELECT IdProducto FROM Productos");
         var validador = new ReferentialValidator(idsClientes, idsProductos);
 
         var resultados = new List<EtlSourceResult>();
 
-        using var conn = new SqlConnection(_connectionString);
-        await conn.OpenAsync();
-
+        // 3. Procesar las fuentes con transacciones individuales
         resultados.Add(await ProcesarEncuestasAsync(conn, validador));
         resultados.Add(await ProcesarResenasWebAsync(conn, validador));
         resultados.Add(await ProcesarComentariosSocialesAsync(conn, validador));
@@ -63,84 +87,120 @@ public class EtlPipeline(string connectionString, string carpetaDatos)
 
     private async Task<EtlSourceResult> ProcesarEncuestasAsync(SqlConnection conn, ReferentialValidator validador)
     {
-        var resultado = new EtlSourceResult { NombreFuente = "Encuestas internas (CSV)" };
-        var idFuente = await _dimensionLoader.ObtenerOCrearFuenteAsync("EncuestaInterna");
-
-        var registros = CsvExtractor.Leer<SurveyRecord>(Path.Combine(_carpetaDatos, "surveys_part1.csv"));
-        foreach (var r in registros)
+        var resultado = new EtlSourceResult { NombreFuente = "Encuestas internas" };
+        
+        using var trans = conn.BeginTransaction();
+        try
         {
-            var clasificacion = DataCleaner.NormalizarClasificacion(r.Clasificacion);
-            int? puntaje = int.TryParse(r.PuntajeSatisfaccion, out var p) ? p : null;
+            var idFuente = await _dimensionLoader.ObtenerOCrearFuenteAsync(conn, trans, "EncuestaInterna");
+            var registros = CsvExtractor.Leer<SurveyRecord>(Path.Combine(_options.CarpetaDatos, _options.EncuestasCsv));
+            foreach (var r in registros)
+            {
+                var clasificacion = DataCleaner.NormalizarClasificacion(r.Clasificacion);
+                int? puntaje = int.TryParse(r.PuntajeSatisfaccion, out var p) ? p : null;
+                var fecha = DataCleaner.ParsearFecha(r.Fecha);
 
-            await ProcesarFilaAsync(conn, validador, idFuente,
-                origenId: r.IdOpinion,
-                idClienteCrudo: r.IdCliente,
-                idProductoCrudo: r.IdProducto,
-                fechaCruda: r.Fecha,
-                comentarioCrudo: r.Comentario,
-                clasificacion: clasificacion,
-                puntaje: puntaje,
-                resultado: resultado);
+                await ProcesarFilaAsync(conn, trans, validador, idFuente,
+                    origenId: r.IdOpinion,
+                    idClienteCrudo: r.IdCliente,
+                    idProductoCrudo: r.IdProducto,
+                    fecha: fecha,
+                    comentarioCrudo: r.Comentario,
+                    clasificacion: clasificacion,
+                    puntaje: puntaje,
+                    resultado: resultado);
+            }
+            await trans.CommitAsync();
         }
+        catch (Exception)
+        {
+            await trans.RollbackAsync();
+            throw;
+        }
+
         return resultado;
     }
 
     private async Task<EtlSourceResult> ProcesarResenasWebAsync(SqlConnection conn, ReferentialValidator validador)
     {
-        var resultado = new EtlSourceResult { NombreFuente = "Reseñas web (CSV)" };
-        var idFuente = await _dimensionLoader.ObtenerOCrearFuenteAsync("ReseñaWeb");
-
-        var registros = CsvExtractor.Leer<WebReviewRecord>(Path.Combine(_carpetaDatos, "web_reviews.csv"));
-        foreach (var r in registros)
+        var resultado = new EtlSourceResult { NombreFuente = "Reseñas web (BD relacional)" };
+        
+        using var trans = conn.BeginTransaction();
+        try
         {
-            int? rating = int.TryParse(r.Rating, out var rv) ? rv : null;
-            var clasificacion = rating is not null ? RatingClassifier.Clasificar(rating.Value) : "Neutra";
+            var idFuente = await _dimensionLoader.ObtenerOCrearFuenteAsync(conn, trans, "ReseñaWeb");
+            var registros = await conn.QueryAsync<WebReviewSourceRecord>("EXEC sp_ObtenerResenasWebOrigen", null, trans);
+            foreach (var r in registros)
+            {
+                var clasificacion = RatingClassifier.Clasificar(r.Rating);
 
-            await ProcesarFilaAsync(conn, validador, idFuente,
-                origenId: r.IdReview,
-                idClienteCrudo: r.IdCliente,
-                idProductoCrudo: r.IdProducto,
-                fechaCruda: r.Fecha,
-                comentarioCrudo: r.Comentario,
-                clasificacion: clasificacion,
-                puntaje: rating,
-                resultado: resultado);
+                // Se pasa directamente r.Fecha (DateTime), evitando el string round-trip
+                await ProcesarFilaAsync(conn, trans, validador, idFuente,
+                    origenId: r.IdReview,
+                    idClienteCrudo: r.IdCliente,
+                    idProductoCrudo: r.IdProducto,
+                    fecha: r.Fecha,
+                    comentarioCrudo: r.Comentario,
+                    clasificacion: clasificacion,
+                    puntaje: r.Rating,
+                    resultado: resultado);
+            }
+            await trans.CommitAsync();
         }
+        catch (Exception)
+        {
+            await trans.RollbackAsync();
+            throw;
+        }
+
         return resultado;
     }
 
     private async Task<EtlSourceResult> ProcesarComentariosSocialesAsync(SqlConnection conn, ReferentialValidator validador)
     {
-        var resultado = new EtlSourceResult { NombreFuente = "Comentarios en redes sociales (CSV, simula API REST)" };
-        var idFuente = await _dimensionLoader.ObtenerOCrearFuenteAsync("RedSocial");
-
-        var registros = CsvExtractor.Leer<SocialCommentRecord>(Path.Combine(_carpetaDatos, "social_comments.csv"));
-        foreach (var r in registros)
+        var resultado = new EtlSourceResult { NombreFuente = "Comentarios en redes sociales (API REST)" };
+        
+        using var trans = conn.BeginTransaction();
+        try
         {
-            var comentarioLimpio = DataCleaner.Limpiar(r.Comentario);
-            var clasificacion = KeywordSentimentClassifier.Clasificar(comentarioLimpio);
+            var idFuente = await _dimensionLoader.ObtenerOCrearFuenteAsync(conn, trans, "RedSocial");
+            var registros = await _apiExtractor.LeerAsync();
+            foreach (var r in registros)
+            {
+                var comentarioLimpio = DataCleaner.Limpiar(r.Comentario);
+                var clasificacion = KeywordSentimentClassifier.Clasificar(comentarioLimpio);
+                var fecha = DataCleaner.ParsearFecha(r.Fecha);
 
-            await ProcesarFilaAsync(conn, validador, idFuente,
-                origenId: r.IdComment,
-                idClienteCrudo: r.IdCliente,
-                idProductoCrudo: r.IdProducto,
-                fechaCruda: r.Fecha,
-                comentarioCrudo: r.Comentario,
-                clasificacion: clasificacion,
-                puntaje: null,
-                resultado: resultado);
+                await ProcesarFilaAsync(conn, trans, validador, idFuente,
+                    origenId: r.IdComment,
+                    idClienteCrudo: r.IdCliente,
+                    idProductoCrudo: r.IdProducto,
+                    fecha: fecha,
+                    comentarioCrudo: r.Comentario,
+                    clasificacion: clasificacion,
+                    puntaje: null,
+                    resultado: resultado);
+            }
+            await trans.CommitAsync();
         }
+        catch (Exception)
+        {
+            await trans.RollbackAsync();
+            throw;
+        }
+
         return resultado;
     }
 
     private static async Task ProcesarFilaAsync(
         SqlConnection conn,
+        SqlTransaction? transaction,
         ReferentialValidator validador,
         int idFuente,
         string? origenId,
         string? idClienteCrudo,
         string idProductoCrudo,
-        string? fechaCruda,
+        DateTime? fecha,
         string? comentarioCrudo,
         string clasificacion,
         int? puntaje,
@@ -155,7 +215,6 @@ public class EtlPipeline(string connectionString, string carpetaDatos)
             return;
         }
 
-        var fecha = DataCleaner.ParsearFecha(fechaCruda);
         if (fecha is null)
         {
             resultado.RechazadosDatosInvalidos++;
@@ -171,14 +230,13 @@ public class EtlPipeline(string connectionString, string carpetaDatos)
 
         var idClienteNormalizado = IdNormalizer.Normalizar(idClienteCrudo);
         string? idClienteResuelto = null;
-        // Una opinión puede cargarse sin cliente, pero nunca sin producto.
         if (idClienteNormalizado is not null && validador.ClienteExiste(idClienteNormalizado))
             idClienteResuelto = idClienteNormalizado;
         else
             resultado.ClientesNulificados++;
 
         var insertado = await OpinionLoader.InsertarAsync(
-            conn, origenId, idClienteResuelto, idProducto, idFuente,
+            conn, transaction, origenId, idClienteResuelto, idProducto, idFuente,
             fecha.Value, comentario, clasificacion, puntaje);
 
         if (insertado) resultado.Insertados++;

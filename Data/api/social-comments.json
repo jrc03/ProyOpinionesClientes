@@ -1,0 +1,1602 @@
+[
+  {
+    "idComment": "T0001",
+    "idCliente": "C019",
+    "idProducto": "P003",
+    "fuente": "Instagram",
+    "fecha": "2025-06-15",
+    "comentario": "Información suficiente, sin mayor novedad"
+  },
+  {
+    "idComment": "T0002",
+    "idCliente": null,
+    "idProducto": "P006",
+    "fuente": "Twitter",
+    "fecha": "2025-08-27",
+    "comentario": "Muy mala calidad, se rompió rápido"
+  },
+  {
+    "idComment": "T0003",
+    "idCliente": null,
+    "idProducto": "P008",
+    "fuente": "Instagram",
+    "fecha": "2025-07-28",
+    "comentario": "Gran relación calidad-precio"
+  },
+  {
+    "idComment": "T0004",
+    "idCliente": null,
+    "idProducto": "P015",
+    "fuente": "Twitter",
+    "fecha": "2025-09-05",
+    "comentario": "Pésima atención al cliente"
+  },
+  {
+    "idComment": "T0005",
+    "idCliente": "C031",
+    "idProducto": "P010",
+    "fuente": "Instagram",
+    "fecha": "2025-09-04",
+    "comentario": "No cumple con lo anunciado, insatisfecho"
+  },
+  {
+    "idComment": "T0006",
+    "idCliente": null,
+    "idProducto": "P005",
+    "fuente": "Facebook",
+    "fecha": "2025-06-18",
+    "comentario": "No cumple con lo anunciado, insatisfecho"
+  },
+  {
+    "idComment": "T0007",
+    "idCliente": "C036",
+    "idProducto": "P017",
+    "fuente": "Twitter",
+    "fecha": "2025-07-20",
+    "comentario": "No funciona como esperaba, decepcionado"
+  },
+  {
+    "idComment": "T0008",
+    "idCliente": null,
+    "idProducto": "P017",
+    "fuente": "Instagram",
+    "fecha": "2025-08-25",
+    "comentario": "Me encanta este producto, excelente calidad"
+  },
+  {
+    "idComment": "T0009",
+    "idCliente": "C021",
+    "idProducto": "P010",
+    "fuente": "Facebook",
+    "fecha": "2025-07-09",
+    "comentario": "Información suficiente, sin mayor novedad"
+  },
+  {
+    "idComment": "T0010",
+    "idCliente": null,
+    "idProducto": "P010",
+    "fuente": "Facebook",
+    "fecha": "2025-08-28",
+    "comentario": "Gran relación calidad-precio"
+  },
+  {
+    "idComment": "T0011",
+    "idCliente": null,
+    "idProducto": "P010",
+    "fuente": "Instagram",
+    "fecha": "2025-07-01",
+    "comentario": "Muy satisfecho con la compra, lo recomiendo"
+  },
+  {
+    "idComment": "T0012",
+    "idCliente": "C040",
+    "idProducto": "P005",
+    "fuente": "Facebook",
+    "fecha": "2025-07-03",
+    "comentario": "Satisface lo básico"
+  },
+  {
+    "idComment": "T0013",
+    "idCliente": null,
+    "idProducto": "P002",
+    "fuente": "Instagram",
+    "fecha": "2025-07-02",
+    "comentario": "Me encanta este producto, excelente calidad"
+  },
+  {
+    "idComment": "T0014",
+    "idCliente": null,
+    "idProducto": "P009",
+    "fuente": "Instagram",
+    "fecha": "2025-06-24",
+    "comentario": "Entrega correcta, sin comentarios adicionales"
+  },
+  {
+    "idComment": "T0015",
+    "idCliente": "C035",
+    "idProducto": "P001",
+    "fuente": "Facebook",
+    "fecha": "2025-08-13",
+    "comentario": "Producto llegó rápido y funciona perfecto"
+  },
+  {
+    "idComment": "T0016",
+    "idCliente": "C005",
+    "idProducto": "P013",
+    "fuente": "Facebook",
+    "fecha": "2025-07-22",
+    "comentario": "No funciona como esperaba, decepcionado"
+  },
+  {
+    "idComment": "T0017",
+    "idCliente": "C022",
+    "idProducto": "P016",
+    "fuente": "Instagram",
+    "fecha": "2025-08-04",
+    "comentario": "Envío tardío y producto dañado"
+  },
+  {
+    "idComment": "T0018",
+    "idCliente": null,
+    "idProducto": "P012",
+    "fuente": "Instagram",
+    "fecha": "2025-07-04",
+    "comentario": "Producto llegó rápido y funciona perfecto"
+  },
+  {
+    "idComment": "T0019",
+    "idCliente": "C030",
+    "idProducto": "P004",
+    "fuente": "Twitter",
+    "fecha": "2025-08-26",
+    "comentario": "Calidad superior, muy contento"
+  },
+  {
+    "idComment": "T0020",
+    "idCliente": "C025",
+    "idProducto": "P004",
+    "fuente": "Twitter",
+    "fecha": "2025-08-24",
+    "comentario": "Entrega correcta, sin comentarios adicionales"
+  },
+  {
+    "idComment": "T0021",
+    "idCliente": null,
+    "idProducto": "P011",
+    "fuente": "Twitter",
+    "fecha": "2025-07-12",
+    "comentario": "Información suficiente, sin mayor novedad"
+  },
+  {
+    "idComment": "T0022",
+    "idCliente": "C020",
+    "idProducto": "P017",
+    "fuente": "Facebook",
+    "fecha": "2025-07-11",
+    "comentario": "Muy mala calidad, se rompió rápido"
+  },
+  {
+    "idComment": "T0023",
+    "idCliente": null,
+    "idProducto": "P015",
+    "fuente": "Twitter",
+    "fecha": "2025-09-07",
+    "comentario": "Producto llegó rápido y funciona perfecto"
+  },
+  {
+    "idComment": "T0024",
+    "idCliente": "C031",
+    "idProducto": "P010",
+    "fuente": "Twitter",
+    "fecha": "2025-07-20",
+    "comentario": "Me encanta este producto, excelente calidad"
+  },
+  {
+    "idComment": "T0025",
+    "idCliente": null,
+    "idProducto": "P005",
+    "fuente": "Facebook",
+    "fecha": "2025-09-08",
+    "comentario": "Entrega correcta, sin comentarios adicionales"
+  },
+  {
+    "idComment": "T0026",
+    "idCliente": "C036",
+    "idProducto": "P013",
+    "fuente": "Facebook",
+    "fecha": "2025-09-04",
+    "comentario": "Gran relación calidad-precio"
+  },
+  {
+    "idComment": "T0027",
+    "idCliente": "C036",
+    "idProducto": "P013",
+    "fuente": "Instagram",
+    "fecha": "2025-06-27",
+    "comentario": "Gran relación calidad-precio"
+  },
+  {
+    "idComment": "T0028",
+    "idCliente": "C007",
+    "idProducto": "P004",
+    "fuente": "Instagram",
+    "fecha": "2025-07-29",
+    "comentario": "Producto llegó rápido y funciona perfecto"
+  },
+  {
+    "idComment": "T0029",
+    "idCliente": "C033",
+    "idProducto": "P005",
+    "fuente": "Twitter",
+    "fecha": "2025-09-09",
+    "comentario": "Muy mala calidad, se rompió rápido"
+  },
+  {
+    "idComment": "T0030",
+    "idCliente": null,
+    "idProducto": "P005",
+    "fuente": "Facebook",
+    "fecha": "2025-08-25",
+    "comentario": "Satisface lo básico"
+  },
+  {
+    "idComment": "T0031",
+    "idCliente": null,
+    "idProducto": "P020",
+    "fuente": "Facebook",
+    "fecha": "2025-08-24",
+    "comentario": "Gran relación calidad-precio"
+  },
+  {
+    "idComment": "T0032",
+    "idCliente": null,
+    "idProducto": "P013",
+    "fuente": "Instagram",
+    "fecha": "2025-08-01",
+    "comentario": "Es lo que esperaba, nada excepcional"
+  },
+  {
+    "idComment": "T0033",
+    "idCliente": null,
+    "idProducto": "P017",
+    "fuente": "Facebook",
+    "fecha": "2025-07-15",
+    "comentario": "Pésima atención al cliente"
+  },
+  {
+    "idComment": "T0034",
+    "idCliente": "C008",
+    "idProducto": "P001",
+    "fuente": "Facebook",
+    "fecha": "2025-06-17",
+    "comentario": "Satisface lo básico"
+  },
+  {
+    "idComment": "T0035",
+    "idCliente": "C017",
+    "idProducto": "P001",
+    "fuente": "Instagram",
+    "fecha": "2025-08-15",
+    "comentario": "Satisface lo básico"
+  },
+  {
+    "idComment": "T0036",
+    "idCliente": "C011",
+    "idProducto": "P002",
+    "fuente": "Facebook",
+    "fecha": "2025-08-26",
+    "comentario": "Pésima atención al cliente"
+  },
+  {
+    "idComment": "T0037",
+    "idCliente": "C008",
+    "idProducto": "P008",
+    "fuente": "Facebook",
+    "fecha": "2025-07-22",
+    "comentario": "Calidad superior, muy contento"
+  },
+  {
+    "idComment": "T0038",
+    "idCliente": "C014",
+    "idProducto": "P005",
+    "fuente": "Facebook",
+    "fecha": "2025-09-06",
+    "comentario": "Pésima atención al cliente"
+  },
+  {
+    "idComment": "T0039",
+    "idCliente": "C036",
+    "idProducto": "P005",
+    "fuente": "Instagram",
+    "fecha": "2025-07-27",
+    "comentario": "Calidad superior, muy contento"
+  },
+  {
+    "idComment": "T0040",
+    "idCliente": null,
+    "idProducto": "P011",
+    "fuente": "Facebook",
+    "fecha": "2025-07-06",
+    "comentario": "Pésima atención al cliente"
+  },
+  {
+    "idComment": "T0041",
+    "idCliente": null,
+    "idProducto": "P012",
+    "fuente": "Instagram",
+    "fecha": "2025-07-14",
+    "comentario": "Es lo que esperaba, nada excepcional"
+  },
+  {
+    "idComment": "T0042",
+    "idCliente": null,
+    "idProducto": "P007",
+    "fuente": "Twitter",
+    "fecha": "2025-08-06",
+    "comentario": "Producto llegó rápido y funciona perfecto"
+  },
+  {
+    "idComment": "T0043",
+    "idCliente": null,
+    "idProducto": "P010",
+    "fuente": "Facebook",
+    "fecha": "2025-07-14",
+    "comentario": "No cumple con lo anunciado, insatisfecho"
+  },
+  {
+    "idComment": "T0044",
+    "idCliente": "C018",
+    "idProducto": "P012",
+    "fuente": "Instagram",
+    "fecha": "2025-07-06",
+    "comentario": "Gran relación calidad-precio"
+  },
+  {
+    "idComment": "T0045",
+    "idCliente": null,
+    "idProducto": "P013",
+    "fuente": "Twitter",
+    "fecha": "2025-08-07",
+    "comentario": "Producto llegó rápido y funciona perfecto"
+  },
+  {
+    "idComment": "T0046",
+    "idCliente": "C006",
+    "idProducto": "P002",
+    "fuente": "Instagram",
+    "fecha": "2025-08-12",
+    "comentario": "Calidad superior, muy contento"
+  },
+  {
+    "idComment": "T0047",
+    "idCliente": "C035",
+    "idProducto": "P016",
+    "fuente": "Instagram",
+    "fecha": "2025-08-10",
+    "comentario": "Gran relación calidad-precio"
+  },
+  {
+    "idComment": "T0048",
+    "idCliente": "C038",
+    "idProducto": "P005",
+    "fuente": "Instagram",
+    "fecha": "2025-07-08",
+    "comentario": "Me encanta este producto, excelente calidad"
+  },
+  {
+    "idComment": "T0049",
+    "idCliente": null,
+    "idProducto": "P008",
+    "fuente": "Facebook",
+    "fecha": "2025-07-15",
+    "comentario": "Calidad superior, muy contento"
+  },
+  {
+    "idComment": "T0050",
+    "idCliente": null,
+    "idProducto": "P004",
+    "fuente": "Twitter",
+    "fecha": "2025-07-23",
+    "comentario": "Gran relación calidad-precio"
+  },
+  {
+    "idComment": "T0051",
+    "idCliente": "C013",
+    "idProducto": "P016",
+    "fuente": "Facebook",
+    "fecha": "2025-08-08",
+    "comentario": "Es lo que esperaba, nada excepcional"
+  },
+  {
+    "idComment": "T0052",
+    "idCliente": null,
+    "idProducto": "P002",
+    "fuente": "Twitter",
+    "fecha": "2025-07-07",
+    "comentario": "Gran relación calidad-precio"
+  },
+  {
+    "idComment": "T0053",
+    "idCliente": null,
+    "idProducto": "P002",
+    "fuente": "Twitter",
+    "fecha": "2025-07-25",
+    "comentario": "Muy satisfecho con la compra, lo recomiendo"
+  },
+  {
+    "idComment": "T0054",
+    "idCliente": "C019",
+    "idProducto": "P016",
+    "fuente": "Facebook",
+    "fecha": "2025-07-03",
+    "comentario": "Producto recibido, cumple su función"
+  },
+  {
+    "idComment": "T0055",
+    "idCliente": "C022",
+    "idProducto": "P020",
+    "fuente": "Instagram",
+    "fecha": "2025-07-12",
+    "comentario": "Gran relación calidad-precio"
+  },
+  {
+    "idComment": "T0056",
+    "idCliente": null,
+    "idProducto": "P005",
+    "fuente": "Twitter",
+    "fecha": "2025-08-02",
+    "comentario": "No funciona como esperaba, decepcionado"
+  },
+  {
+    "idComment": "T0057",
+    "idCliente": null,
+    "idProducto": "P006",
+    "fuente": "Twitter",
+    "fecha": "2025-08-01",
+    "comentario": "No funciona como esperaba, decepcionado"
+  },
+  {
+    "idComment": "T0058",
+    "idCliente": "C013",
+    "idProducto": "P010",
+    "fuente": "Facebook",
+    "fecha": "2025-07-10",
+    "comentario": "Calidad superior, muy contento"
+  },
+  {
+    "idComment": "T0059",
+    "idCliente": "C007",
+    "idProducto": "P011",
+    "fuente": "Facebook",
+    "fecha": "2025-08-03",
+    "comentario": "Muy satisfecho con la compra, lo recomiendo"
+  },
+  {
+    "idComment": "T0060",
+    "idCliente": "C025",
+    "idProducto": "P008",
+    "fuente": "Facebook",
+    "fecha": "2025-08-06",
+    "comentario": "Producto llegó rápido y funciona perfecto"
+  },
+  {
+    "idComment": "T0061",
+    "idCliente": null,
+    "idProducto": "P019",
+    "fuente": "Instagram",
+    "fecha": "2025-08-14",
+    "comentario": "Producto llegó rápido y funciona perfecto"
+  },
+  {
+    "idComment": "T0062",
+    "idCliente": null,
+    "idProducto": "P002",
+    "fuente": "Facebook",
+    "fecha": "2025-06-18",
+    "comentario": "No funciona como esperaba, decepcionado"
+  },
+  {
+    "idComment": "T0063",
+    "idCliente": null,
+    "idProducto": "P017",
+    "fuente": "Instagram",
+    "fecha": "2025-08-29",
+    "comentario": "Es lo que esperaba, nada excepcional"
+  },
+  {
+    "idComment": "T0064",
+    "idCliente": "C015",
+    "idProducto": "P010",
+    "fuente": "Facebook",
+    "fecha": "2025-08-25",
+    "comentario": "Muy satisfecho con la compra, lo recomiendo"
+  },
+  {
+    "idComment": "T0065",
+    "idCliente": null,
+    "idProducto": "P015",
+    "fuente": "Instagram",
+    "fecha": "2025-07-05",
+    "comentario": "No cumple con lo anunciado, insatisfecho"
+  },
+  {
+    "idComment": "T0066",
+    "idCliente": null,
+    "idProducto": "P016",
+    "fuente": "Twitter",
+    "fecha": "2025-06-18",
+    "comentario": "Información suficiente, sin mayor novedad"
+  },
+  {
+    "idComment": "T0067",
+    "idCliente": null,
+    "idProducto": "P020",
+    "fuente": "Instagram",
+    "fecha": "2025-06-15",
+    "comentario": "Calidad superior, muy contento"
+  },
+  {
+    "idComment": "T0068",
+    "idCliente": "C037",
+    "idProducto": "P012",
+    "fuente": "Instagram",
+    "fecha": "2025-08-19",
+    "comentario": "Gran relación calidad-precio"
+  },
+  {
+    "idComment": "T0069",
+    "idCliente": "C011",
+    "idProducto": "P019",
+    "fuente": "Facebook",
+    "fecha": "2025-08-30",
+    "comentario": "Gran relación calidad-precio"
+  },
+  {
+    "idComment": "T0070",
+    "idCliente": null,
+    "idProducto": "P007",
+    "fuente": "Facebook",
+    "fecha": "2025-09-06",
+    "comentario": "Pésima atención al cliente"
+  },
+  {
+    "idComment": "T0071",
+    "idCliente": "C027",
+    "idProducto": "P015",
+    "fuente": "Instagram",
+    "fecha": "2025-07-16",
+    "comentario": "Muy mala calidad, se rompió rápido"
+  },
+  {
+    "idComment": "T0072",
+    "idCliente": null,
+    "idProducto": "P010",
+    "fuente": "Instagram",
+    "fecha": "2025-08-17",
+    "comentario": "Me encanta este producto, excelente calidad"
+  },
+  {
+    "idComment": "T0073",
+    "idCliente": "C028",
+    "idProducto": "P019",
+    "fuente": "Instagram",
+    "fecha": "2025-09-06",
+    "comentario": "Me encanta este producto, excelente calidad"
+  },
+  {
+    "idComment": "T0074",
+    "idCliente": null,
+    "idProducto": "P003",
+    "fuente": "Facebook",
+    "fecha": "2025-08-21",
+    "comentario": "Envío tardío y producto dañado"
+  },
+  {
+    "idComment": "T0075",
+    "idCliente": null,
+    "idProducto": "P005",
+    "fuente": "Facebook",
+    "fecha": "2025-07-27",
+    "comentario": "Entrega correcta, sin comentarios adicionales"
+  },
+  {
+    "idComment": "T0076",
+    "idCliente": null,
+    "idProducto": "P015",
+    "fuente": "Twitter",
+    "fecha": "2025-06-18",
+    "comentario": "Entrega correcta, sin comentarios adicionales"
+  },
+  {
+    "idComment": "T0077",
+    "idCliente": "C023",
+    "idProducto": "P018",
+    "fuente": "Facebook",
+    "fecha": "2025-07-08",
+    "comentario": "Gran relación calidad-precio"
+  },
+  {
+    "idComment": "T0078",
+    "idCliente": null,
+    "idProducto": "P005",
+    "fuente": "Twitter",
+    "fecha": "2025-08-06",
+    "comentario": "Me encanta este producto, excelente calidad"
+  },
+  {
+    "idComment": "T0079",
+    "idCliente": null,
+    "idProducto": "P015",
+    "fuente": "Facebook",
+    "fecha": "2025-08-15",
+    "comentario": "Pésima atención al cliente"
+  },
+  {
+    "idComment": "T0080",
+    "idCliente": "C010",
+    "idProducto": "P008",
+    "fuente": "Twitter",
+    "fecha": "2025-06-21",
+    "comentario": "Me encanta este producto, excelente calidad"
+  },
+  {
+    "idComment": "T0081",
+    "idCliente": null,
+    "idProducto": "P014",
+    "fuente": "Twitter",
+    "fecha": "2025-08-18",
+    "comentario": "Producto recibido, cumple su función"
+  },
+  {
+    "idComment": "T0082",
+    "idCliente": "C003",
+    "idProducto": "P003",
+    "fuente": "Twitter",
+    "fecha": "2025-09-08",
+    "comentario": "Muy mala calidad, se rompió rápido"
+  },
+  {
+    "idComment": "T0083",
+    "idCliente": "C035",
+    "idProducto": "P013",
+    "fuente": "Twitter",
+    "fecha": "2025-07-11",
+    "comentario": "Me encanta este producto, excelente calidad"
+  },
+  {
+    "idComment": "T0084",
+    "idCliente": "C037",
+    "idProducto": "P010",
+    "fuente": "Instagram",
+    "fecha": "2025-08-03",
+    "comentario": "Gran relación calidad-precio"
+  },
+  {
+    "idComment": "T0085",
+    "idCliente": "C010",
+    "idProducto": "P008",
+    "fuente": "Twitter",
+    "fecha": "2025-07-23",
+    "comentario": "Satisface lo básico"
+  },
+  {
+    "idComment": "T0086",
+    "idCliente": "C036",
+    "idProducto": "P010",
+    "fuente": "Instagram",
+    "fecha": "2025-06-19",
+    "comentario": "Información suficiente, sin mayor novedad"
+  },
+  {
+    "idComment": "T0087",
+    "idCliente": "C004",
+    "idProducto": "P014",
+    "fuente": "Instagram",
+    "fecha": "2025-08-04",
+    "comentario": "Entrega correcta, sin comentarios adicionales"
+  },
+  {
+    "idComment": "T0088",
+    "idCliente": "C020",
+    "idProducto": "P014",
+    "fuente": "Facebook",
+    "fecha": "2025-08-14",
+    "comentario": "Gran relación calidad-precio"
+  },
+  {
+    "idComment": "T0089",
+    "idCliente": "C010",
+    "idProducto": "P008",
+    "fuente": "Instagram",
+    "fecha": "2025-07-23",
+    "comentario": "Producto recibido, cumple su función"
+  },
+  {
+    "idComment": "T0090",
+    "idCliente": "C009",
+    "idProducto": "P014",
+    "fuente": "Twitter",
+    "fecha": "2025-08-02",
+    "comentario": "Producto llegó rápido y funciona perfecto"
+  },
+  {
+    "idComment": "T0091",
+    "idCliente": null,
+    "idProducto": "P003",
+    "fuente": "Instagram",
+    "fecha": "2025-08-20",
+    "comentario": "Producto recibido, cumple su función"
+  },
+  {
+    "idComment": "T0092",
+    "idCliente": "C039",
+    "idProducto": "P002",
+    "fuente": "Twitter",
+    "fecha": "2025-06-30",
+    "comentario": "Muy mala calidad, se rompió rápido"
+  },
+  {
+    "idComment": "T0093",
+    "idCliente": "C014",
+    "idProducto": "P018",
+    "fuente": "Facebook",
+    "fecha": "2025-09-12",
+    "comentario": "Es lo que esperaba, nada excepcional"
+  },
+  {
+    "idComment": "T0094",
+    "idCliente": null,
+    "idProducto": "P007",
+    "fuente": "Instagram",
+    "fecha": "2025-07-14",
+    "comentario": "Producto recibido, cumple su función"
+  },
+  {
+    "idComment": "T0095",
+    "idCliente": null,
+    "idProducto": "P008",
+    "fuente": "Twitter",
+    "fecha": "2025-07-05",
+    "comentario": "Entrega correcta, sin comentarios adicionales"
+  },
+  {
+    "idComment": "T0096",
+    "idCliente": null,
+    "idProducto": "P011",
+    "fuente": "Instagram",
+    "fecha": "2025-07-30",
+    "comentario": "Gran relación calidad-precio"
+  },
+  {
+    "idComment": "T0097",
+    "idCliente": "C033",
+    "idProducto": "P010",
+    "fuente": "Twitter",
+    "fecha": "2025-07-15",
+    "comentario": "Entrega correcta, sin comentarios adicionales"
+  },
+  {
+    "idComment": "T0098",
+    "idCliente": null,
+    "idProducto": "P011",
+    "fuente": "Twitter",
+    "fecha": "2025-07-03",
+    "comentario": "Calidad superior, muy contento"
+  },
+  {
+    "idComment": "T0099",
+    "idCliente": null,
+    "idProducto": "P008",
+    "fuente": "Instagram",
+    "fecha": "2025-07-01",
+    "comentario": "Gran relación calidad-precio"
+  },
+  {
+    "idComment": "T0100",
+    "idCliente": "C013",
+    "idProducto": "P014",
+    "fuente": "Instagram",
+    "fecha": "2025-08-13",
+    "comentario": "Calidad superior, muy contento"
+  },
+  {
+    "idComment": "T0101",
+    "idCliente": "C022",
+    "idProducto": "P016",
+    "fuente": "Instagram",
+    "fecha": "2025-06-23",
+    "comentario": "Calidad superior, muy contento"
+  },
+  {
+    "idComment": "T0102",
+    "idCliente": "C023",
+    "idProducto": "P016",
+    "fuente": "Facebook",
+    "fecha": "2025-08-21",
+    "comentario": "Gran relación calidad-precio"
+  },
+  {
+    "idComment": "T0103",
+    "idCliente": null,
+    "idProducto": "P018",
+    "fuente": "Twitter",
+    "fecha": "2025-09-04",
+    "comentario": "Satisface lo básico"
+  },
+  {
+    "idComment": "T0104",
+    "idCliente": null,
+    "idProducto": "P002",
+    "fuente": "Twitter",
+    "fecha": "2025-06-15",
+    "comentario": "No funciona como esperaba, decepcionado"
+  },
+  {
+    "idComment": "T0105",
+    "idCliente": "C033",
+    "idProducto": "P005",
+    "fuente": "Instagram",
+    "fecha": "2025-06-24",
+    "comentario": "Muy mala calidad, se rompió rápido"
+  },
+  {
+    "idComment": "T0106",
+    "idCliente": null,
+    "idProducto": "P020",
+    "fuente": "Twitter",
+    "fecha": "2025-07-07",
+    "comentario": "Muy mala calidad, se rompió rápido"
+  },
+  {
+    "idComment": "T0107",
+    "idCliente": "C002",
+    "idProducto": "P018",
+    "fuente": "Instagram",
+    "fecha": "2025-08-08",
+    "comentario": "Envío tardío y producto dañado"
+  },
+  {
+    "idComment": "T0108",
+    "idCliente": "C028",
+    "idProducto": "P001",
+    "fuente": "Twitter",
+    "fecha": "2025-09-01",
+    "comentario": "Información suficiente, sin mayor novedad"
+  },
+  {
+    "idComment": "T0109",
+    "idCliente": "C013",
+    "idProducto": "P017",
+    "fuente": "Facebook",
+    "fecha": "2025-08-10",
+    "comentario": "Envío tardío y producto dañado"
+  },
+  {
+    "idComment": "T0110",
+    "idCliente": "C026",
+    "idProducto": "P013",
+    "fuente": "Instagram",
+    "fecha": "2025-08-16",
+    "comentario": "No funciona como esperaba, decepcionado"
+  },
+  {
+    "idComment": "T0111",
+    "idCliente": null,
+    "idProducto": "P010",
+    "fuente": "Twitter",
+    "fecha": "2025-07-24",
+    "comentario": "Producto recibido, cumple su función"
+  },
+  {
+    "idComment": "T0112",
+    "idCliente": "C031",
+    "idProducto": "P013",
+    "fuente": "Instagram",
+    "fecha": "2025-08-23",
+    "comentario": "Me encanta este producto, excelente calidad"
+  },
+  {
+    "idComment": "T0113",
+    "idCliente": "C028",
+    "idProducto": "P003",
+    "fuente": "Instagram",
+    "fecha": "2025-09-01",
+    "comentario": "Envío tardío y producto dañado"
+  },
+  {
+    "idComment": "T0114",
+    "idCliente": null,
+    "idProducto": "P017",
+    "fuente": "Facebook",
+    "fecha": "2025-08-10",
+    "comentario": "Gran relación calidad-precio"
+  },
+  {
+    "idComment": "T0115",
+    "idCliente": null,
+    "idProducto": "P002",
+    "fuente": "Instagram",
+    "fecha": "2025-07-03",
+    "comentario": "Envío tardío y producto dañado"
+  },
+  {
+    "idComment": "T0116",
+    "idCliente": "C021",
+    "idProducto": "P002",
+    "fuente": "Instagram",
+    "fecha": "2025-08-26",
+    "comentario": "Muy satisfecho con la compra, lo recomiendo"
+  },
+  {
+    "idComment": "T0117",
+    "idCliente": null,
+    "idProducto": "P013",
+    "fuente": "Twitter",
+    "fecha": "2025-07-03",
+    "comentario": "Gran relación calidad-precio"
+  },
+  {
+    "idComment": "T0118",
+    "idCliente": null,
+    "idProducto": "P013",
+    "fuente": "Instagram",
+    "fecha": "2025-08-27",
+    "comentario": "No cumple con lo anunciado, insatisfecho"
+  },
+  {
+    "idComment": "T0119",
+    "idCliente": "C023",
+    "idProducto": "P003",
+    "fuente": "Twitter",
+    "fecha": "2025-09-04",
+    "comentario": "Calidad superior, muy contento"
+  },
+  {
+    "idComment": "T0120",
+    "idCliente": null,
+    "idProducto": "P011",
+    "fuente": "Facebook",
+    "fecha": "2025-08-03",
+    "comentario": "Pésima atención al cliente"
+  },
+  {
+    "idComment": "T0121",
+    "idCliente": null,
+    "idProducto": "P001",
+    "fuente": "Facebook",
+    "fecha": "2025-08-15",
+    "comentario": "Entrega correcta, sin comentarios adicionales"
+  },
+  {
+    "idComment": "T0122",
+    "idCliente": "C025",
+    "idProducto": "P012",
+    "fuente": "Instagram",
+    "fecha": "2025-07-27",
+    "comentario": "Pésima atención al cliente"
+  },
+  {
+    "idComment": "T0123",
+    "idCliente": null,
+    "idProducto": "P003",
+    "fuente": "Instagram",
+    "fecha": "2025-09-04",
+    "comentario": "Muy satisfecho con la compra, lo recomiendo"
+  },
+  {
+    "idComment": "T0124",
+    "idCliente": "C025",
+    "idProducto": "P003",
+    "fuente": "Instagram",
+    "fecha": "2025-07-26",
+    "comentario": "Información suficiente, sin mayor novedad"
+  },
+  {
+    "idComment": "T0125",
+    "idCliente": "C006",
+    "idProducto": "P011",
+    "fuente": "Facebook",
+    "fecha": "2025-07-29",
+    "comentario": "Producto llegó rápido y funciona perfecto"
+  },
+  {
+    "idComment": "T0126",
+    "idCliente": "C006",
+    "idProducto": "P009",
+    "fuente": "Instagram",
+    "fecha": "2025-07-04",
+    "comentario": "Calidad superior, muy contento"
+  },
+  {
+    "idComment": "T0127",
+    "idCliente": "C002",
+    "idProducto": "P017",
+    "fuente": "Twitter",
+    "fecha": "2025-06-29",
+    "comentario": "Gran relación calidad-precio"
+  },
+  {
+    "idComment": "T0128",
+    "idCliente": null,
+    "idProducto": "P020",
+    "fuente": "Facebook",
+    "fecha": "2025-07-23",
+    "comentario": "Producto recibido, cumple su función"
+  },
+  {
+    "idComment": "T0129",
+    "idCliente": null,
+    "idProducto": "P013",
+    "fuente": "Twitter",
+    "fecha": "2025-07-02",
+    "comentario": "Satisface lo básico"
+  },
+  {
+    "idComment": "T0130",
+    "idCliente": "C025",
+    "idProducto": "P017",
+    "fuente": "Facebook",
+    "fecha": "2025-08-10",
+    "comentario": "Producto llegó rápido y funciona perfecto"
+  },
+  {
+    "idComment": "T0131",
+    "idCliente": "C011",
+    "idProducto": "P016",
+    "fuente": "Facebook",
+    "fecha": "2025-07-14",
+    "comentario": "No cumple con lo anunciado, insatisfecho"
+  },
+  {
+    "idComment": "T0132",
+    "idCliente": "C016",
+    "idProducto": "P003",
+    "fuente": "Instagram",
+    "fecha": "2025-06-27",
+    "comentario": "Entrega correcta, sin comentarios adicionales"
+  },
+  {
+    "idComment": "T0133",
+    "idCliente": "C009",
+    "idProducto": "P007",
+    "fuente": "Facebook",
+    "fecha": "2025-06-26",
+    "comentario": "Calidad superior, muy contento"
+  },
+  {
+    "idComment": "T0134",
+    "idCliente": null,
+    "idProducto": "P013",
+    "fuente": "Facebook",
+    "fecha": "2025-06-22",
+    "comentario": "Producto llegó rápido y funciona perfecto"
+  },
+  {
+    "idComment": "T0135",
+    "idCliente": "C021",
+    "idProducto": "P020",
+    "fuente": "Facebook",
+    "fecha": "2025-08-04",
+    "comentario": "No funciona como esperaba, decepcionado"
+  },
+  {
+    "idComment": "T0136",
+    "idCliente": null,
+    "idProducto": "P006",
+    "fuente": "Instagram",
+    "fecha": "2025-06-17",
+    "comentario": "Es lo que esperaba, nada excepcional"
+  },
+  {
+    "idComment": "T0137",
+    "idCliente": null,
+    "idProducto": "P016",
+    "fuente": "Facebook",
+    "fecha": "2025-08-09",
+    "comentario": "Es lo que esperaba, nada excepcional"
+  },
+  {
+    "idComment": "T0138",
+    "idCliente": "C037",
+    "idProducto": "P013",
+    "fuente": "Twitter",
+    "fecha": "2025-06-18",
+    "comentario": "Gran relación calidad-precio"
+  },
+  {
+    "idComment": "T0139",
+    "idCliente": "C030",
+    "idProducto": "P018",
+    "fuente": "Facebook",
+    "fecha": "2025-08-07",
+    "comentario": "Información suficiente, sin mayor novedad"
+  },
+  {
+    "idComment": "T0140",
+    "idCliente": null,
+    "idProducto": "P003",
+    "fuente": "Instagram",
+    "fecha": "2025-07-12",
+    "comentario": "Entrega correcta, sin comentarios adicionales"
+  },
+  {
+    "idComment": "T0141",
+    "idCliente": null,
+    "idProducto": "P005",
+    "fuente": "Instagram",
+    "fecha": "2025-07-21",
+    "comentario": "Muy satisfecho con la compra, lo recomiendo"
+  },
+  {
+    "idComment": "T0142",
+    "idCliente": "C039",
+    "idProducto": "P013",
+    "fuente": "Instagram",
+    "fecha": "2025-07-11",
+    "comentario": "No cumple con lo anunciado, insatisfecho"
+  },
+  {
+    "idComment": "T0143",
+    "idCliente": "C024",
+    "idProducto": "P014",
+    "fuente": "Instagram",
+    "fecha": "2025-06-24",
+    "comentario": "Satisface lo básico"
+  },
+  {
+    "idComment": "T0144",
+    "idCliente": "C016",
+    "idProducto": "P003",
+    "fuente": "Twitter",
+    "fecha": "2025-06-23",
+    "comentario": "Envío tardío y producto dañado"
+  },
+  {
+    "idComment": "T0145",
+    "idCliente": "C026",
+    "idProducto": "P020",
+    "fuente": "Facebook",
+    "fecha": "2025-08-31",
+    "comentario": "Es lo que esperaba, nada excepcional"
+  },
+  {
+    "idComment": "T0146",
+    "idCliente": "C015",
+    "idProducto": "P001",
+    "fuente": "Instagram",
+    "fecha": "2025-07-01",
+    "comentario": "Pésima atención al cliente"
+  },
+  {
+    "idComment": "T0147",
+    "idCliente": "C024",
+    "idProducto": "P019",
+    "fuente": "Instagram",
+    "fecha": "2025-07-11",
+    "comentario": "Gran relación calidad-precio"
+  },
+  {
+    "idComment": "T0148",
+    "idCliente": "C002",
+    "idProducto": "P005",
+    "fuente": "Facebook",
+    "fecha": "2025-09-03",
+    "comentario": "Envío tardío y producto dañado"
+  },
+  {
+    "idComment": "T0149",
+    "idCliente": null,
+    "idProducto": "P004",
+    "fuente": "Facebook",
+    "fecha": "2025-08-01",
+    "comentario": "Es lo que esperaba, nada excepcional"
+  },
+  {
+    "idComment": "T0150",
+    "idCliente": null,
+    "idProducto": "P015",
+    "fuente": "Facebook",
+    "fecha": "2025-09-01",
+    "comentario": "Envío tardío y producto dañado"
+  },
+  {
+    "idComment": "T0151",
+    "idCliente": null,
+    "idProducto": "P015",
+    "fuente": "Facebook",
+    "fecha": "2025-09-08",
+    "comentario": "Muy mala calidad, se rompió rápido"
+  },
+  {
+    "idComment": "T0152",
+    "idCliente": "C022",
+    "idProducto": "P004",
+    "fuente": "Instagram",
+    "fecha": "2025-08-13",
+    "comentario": "No funciona como esperaba, decepcionado"
+  },
+  {
+    "idComment": "T0153",
+    "idCliente": "C011",
+    "idProducto": "P017",
+    "fuente": "Facebook",
+    "fecha": "2025-08-15",
+    "comentario": "Calidad superior, muy contento"
+  },
+  {
+    "idComment": "T0154",
+    "idCliente": null,
+    "idProducto": "P013",
+    "fuente": "Facebook",
+    "fecha": "2025-09-10",
+    "comentario": "Calidad superior, muy contento"
+  },
+  {
+    "idComment": "T0155",
+    "idCliente": null,
+    "idProducto": "P020",
+    "fuente": "Facebook",
+    "fecha": "2025-09-13",
+    "comentario": "No cumple con lo anunciado, insatisfecho"
+  },
+  {
+    "idComment": "T0156",
+    "idCliente": "C005",
+    "idProducto": "P007",
+    "fuente": "Twitter",
+    "fecha": "2025-07-29",
+    "comentario": "Pésima atención al cliente"
+  },
+  {
+    "idComment": "T0157",
+    "idCliente": "C008",
+    "idProducto": "P011",
+    "fuente": "Instagram",
+    "fecha": "2025-06-24",
+    "comentario": "Calidad superior, muy contento"
+  },
+  {
+    "idComment": "T0158",
+    "idCliente": "C040",
+    "idProducto": "P011",
+    "fuente": "Facebook",
+    "fecha": "2025-07-30",
+    "comentario": "Me encanta este producto, excelente calidad"
+  },
+  {
+    "idComment": "T0159",
+    "idCliente": null,
+    "idProducto": "P015",
+    "fuente": "Instagram",
+    "fecha": "2025-06-30",
+    "comentario": "Es lo que esperaba, nada excepcional"
+  },
+  {
+    "idComment": "T0160",
+    "idCliente": null,
+    "idProducto": "P003",
+    "fuente": "Facebook",
+    "fecha": "2025-08-30",
+    "comentario": "Muy satisfecho con la compra, lo recomiendo"
+  },
+  {
+    "idComment": "T0161",
+    "idCliente": "C010",
+    "idProducto": "P006",
+    "fuente": "Instagram",
+    "fecha": "2025-08-27",
+    "comentario": "No cumple con lo anunciado, insatisfecho"
+  },
+  {
+    "idComment": "T0162",
+    "idCliente": "C012",
+    "idProducto": "P019",
+    "fuente": "Instagram",
+    "fecha": "2025-06-23",
+    "comentario": "Pésima atención al cliente"
+  },
+  {
+    "idComment": "T0163",
+    "idCliente": "C032",
+    "idProducto": "P006",
+    "fuente": "Facebook",
+    "fecha": "2025-07-18",
+    "comentario": "Muy satisfecho con la compra, lo recomiendo"
+  },
+  {
+    "idComment": "T0164",
+    "idCliente": "C023",
+    "idProducto": "P020",
+    "fuente": "Twitter",
+    "fecha": "2025-08-20",
+    "comentario": "Entrega correcta, sin comentarios adicionales"
+  },
+  {
+    "idComment": "T0165",
+    "idCliente": null,
+    "idProducto": "P013",
+    "fuente": "Facebook",
+    "fecha": "2025-06-18",
+    "comentario": "No cumple con lo anunciado, insatisfecho"
+  },
+  {
+    "idComment": "T0166",
+    "idCliente": "C029",
+    "idProducto": "P016",
+    "fuente": "Instagram",
+    "fecha": "2025-09-10",
+    "comentario": "Muy mala calidad, se rompió rápido"
+  },
+  {
+    "idComment": "T0167",
+    "idCliente": "C018",
+    "idProducto": "P008",
+    "fuente": "Twitter",
+    "fecha": "2025-07-17",
+    "comentario": "Producto llegó rápido y funciona perfecto"
+  },
+  {
+    "idComment": "T0168",
+    "idCliente": null,
+    "idProducto": "P019",
+    "fuente": "Instagram",
+    "fecha": "2025-08-30",
+    "comentario": "Satisface lo básico"
+  },
+  {
+    "idComment": "T0169",
+    "idCliente": "C035",
+    "idProducto": "P019",
+    "fuente": "Instagram",
+    "fecha": "2025-09-08",
+    "comentario": "Es lo que esperaba, nada excepcional"
+  },
+  {
+    "idComment": "T0170",
+    "idCliente": "C028",
+    "idProducto": "P015",
+    "fuente": "Facebook",
+    "fecha": "2025-09-09",
+    "comentario": "Muy satisfecho con la compra, lo recomiendo"
+  },
+  {
+    "idComment": "T0171",
+    "idCliente": "C006",
+    "idProducto": "P015",
+    "fuente": "Twitter",
+    "fecha": "2025-08-18",
+    "comentario": "Muy mala calidad, se rompió rápido"
+  },
+  {
+    "idComment": "T0172",
+    "idCliente": null,
+    "idProducto": "P019",
+    "fuente": "Instagram",
+    "fecha": "2025-07-21",
+    "comentario": "Satisface lo básico"
+  },
+  {
+    "idComment": "T0173",
+    "idCliente": null,
+    "idProducto": "P006",
+    "fuente": "Twitter",
+    "fecha": "2025-07-03",
+    "comentario": "Información suficiente, sin mayor novedad"
+  },
+  {
+    "idComment": "T0174",
+    "idCliente": "C039",
+    "idProducto": "P012",
+    "fuente": "Instagram",
+    "fecha": "2025-08-07",
+    "comentario": "Envío tardío y producto dañado"
+  },
+  {
+    "idComment": "T0175",
+    "idCliente": "C033",
+    "idProducto": "P010",
+    "fuente": "Twitter",
+    "fecha": "2025-07-23",
+    "comentario": "Producto recibido, cumple su función"
+  },
+  {
+    "idComment": "T0176",
+    "idCliente": null,
+    "idProducto": "P002",
+    "fuente": "Instagram",
+    "fecha": "2025-08-28",
+    "comentario": "Información suficiente, sin mayor novedad"
+  },
+  {
+    "idComment": "T0177",
+    "idCliente": "C021",
+    "idProducto": "P008",
+    "fuente": "Facebook",
+    "fecha": "2025-08-26",
+    "comentario": "Entrega correcta, sin comentarios adicionales"
+  },
+  {
+    "idComment": "T0178",
+    "idCliente": null,
+    "idProducto": "P019",
+    "fuente": "Facebook",
+    "fecha": "2025-09-04",
+    "comentario": "No cumple con lo anunciado, insatisfecho"
+  },
+  {
+    "idComment": "T0179",
+    "idCliente": "C018",
+    "idProducto": "P003",
+    "fuente": "Facebook",
+    "fecha": "2025-07-13",
+    "comentario": "Envío tardío y producto dañado"
+  },
+  {
+    "idComment": "T0180",
+    "idCliente": "C006",
+    "idProducto": "P011",
+    "fuente": "Instagram",
+    "fecha": "2025-06-20",
+    "comentario": "Entrega correcta, sin comentarios adicionales"
+  },
+  {
+    "idComment": "T0181",
+    "idCliente": null,
+    "idProducto": "P012",
+    "fuente": "Twitter",
+    "fecha": "2025-07-21",
+    "comentario": "Entrega correcta, sin comentarios adicionales"
+  },
+  {
+    "idComment": "T0182",
+    "idCliente": "C021",
+    "idProducto": "P007",
+    "fuente": "Instagram",
+    "fecha": "2025-07-02",
+    "comentario": "Es lo que esperaba, nada excepcional"
+  },
+  {
+    "idComment": "T0183",
+    "idCliente": "C032",
+    "idProducto": "P005",
+    "fuente": "Twitter",
+    "fecha": "2025-09-01",
+    "comentario": "Producto recibido, cumple su función"
+  },
+  {
+    "idComment": "T0184",
+    "idCliente": "C011",
+    "idProducto": "P015",
+    "fuente": "Facebook",
+    "fecha": "2025-08-19",
+    "comentario": "Muy mala calidad, se rompió rápido"
+  },
+  {
+    "idComment": "T0185",
+    "idCliente": null,
+    "idProducto": "P005",
+    "fuente": "Twitter",
+    "fecha": "2025-06-22",
+    "comentario": "Producto llegó rápido y funciona perfecto"
+  },
+  {
+    "idComment": "T0186",
+    "idCliente": "C024",
+    "idProducto": "P012",
+    "fuente": "Twitter",
+    "fecha": "2025-07-25",
+    "comentario": "No funciona como esperaba, decepcionado"
+  },
+  {
+    "idComment": "T0187",
+    "idCliente": null,
+    "idProducto": "P010",
+    "fuente": "Instagram",
+    "fecha": "2025-09-02",
+    "comentario": "Entrega correcta, sin comentarios adicionales"
+  },
+  {
+    "idComment": "T0188",
+    "idCliente": "C031",
+    "idProducto": "P004",
+    "fuente": "Twitter",
+    "fecha": "2025-07-09",
+    "comentario": "Gran relación calidad-precio"
+  },
+  {
+    "idComment": "T0189",
+    "idCliente": "C022",
+    "idProducto": "P015",
+    "fuente": "Instagram",
+    "fecha": "2025-08-28",
+    "comentario": "Entrega correcta, sin comentarios adicionales"
+  },
+  {
+    "idComment": "T0190",
+    "idCliente": "C025",
+    "idProducto": "P016",
+    "fuente": "Twitter",
+    "fecha": "2025-08-04",
+    "comentario": "Me encanta este producto, excelente calidad"
+  },
+  {
+    "idComment": "T0191",
+    "idCliente": null,
+    "idProducto": "P012",
+    "fuente": "Instagram",
+    "fecha": "2025-06-19",
+    "comentario": "Muy satisfecho con la compra, lo recomiendo"
+  },
+  {
+    "idComment": "T0192",
+    "idCliente": "C037",
+    "idProducto": "P005",
+    "fuente": "Facebook",
+    "fecha": "2025-07-31",
+    "comentario": "Muy satisfecho con la compra, lo recomiendo"
+  },
+  {
+    "idComment": "T0193",
+    "idCliente": null,
+    "idProducto": "P007",
+    "fuente": "Instagram",
+    "fecha": "2025-06-18",
+    "comentario": "Calidad superior, muy contento"
+  },
+  {
+    "idComment": "T0194",
+    "idCliente": null,
+    "idProducto": "P015",
+    "fuente": "Twitter",
+    "fecha": "2025-08-29",
+    "comentario": "Me encanta este producto, excelente calidad"
+  },
+  {
+    "idComment": "T0195",
+    "idCliente": null,
+    "idProducto": "P019",
+    "fuente": "Facebook",
+    "fecha": "2025-08-27",
+    "comentario": "Calidad superior, muy contento"
+  },
+  {
+    "idComment": "T0196",
+    "idCliente": "C006",
+    "idProducto": "P008",
+    "fuente": "Instagram",
+    "fecha": "2025-06-28",
+    "comentario": "Gran relación calidad-precio"
+  },
+  {
+    "idComment": "T0197",
+    "idCliente": null,
+    "idProducto": "P010",
+    "fuente": "Twitter",
+    "fecha": "2025-07-09",
+    "comentario": "Envío tardío y producto dañado"
+  },
+  {
+    "idComment": "T0198",
+    "idCliente": "C026",
+    "idProducto": "P020",
+    "fuente": "Twitter",
+    "fecha": "2025-07-12",
+    "comentario": "Me encanta este producto, excelente calidad"
+  },
+  {
+    "idComment": "T0199",
+    "idCliente": "C032",
+    "idProducto": "P013",
+    "fuente": "Instagram",
+    "fecha": "2025-09-12",
+    "comentario": "Muy mala calidad, se rompió rápido"
+  },
+  {
+    "idComment": "T0200",
+    "idCliente": null,
+    "idProducto": "P012",
+    "fuente": "Facebook",
+    "fecha": "2025-07-29",
+    "comentario": "Gran relación calidad-precio"
+  }
+]
