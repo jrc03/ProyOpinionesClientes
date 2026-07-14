@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Sistema de Opiniones</title>
+    <link rel="stylesheet" href="/css/dashboard.css">
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <header class="main-header">
+        <div class="header-container">
+            <h1 class="logo-title">
+                <i data-lucide="bar-chart-3" class="header-icon"></i>
+                Sistema de Análisis de Opiniones de Clientes
+            </h1>
+            <div class="status-indicator" id="db-status-pill">
+                <span class="status-dot"></span>
+                <span class="status-text" id="db-status-text">Comprobando conexión...</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="dashboard-content">
+        <!-- Error Banner -->
+        <div id="error-banner" class="alert-banner alert-danger hidden">
+            <i data-lucide="alert-triangle"></i>
+            <span id="error-message">No se pudo conectar a la base de datos. Se están mostrando datos vacíos.</span>
+        </div>
+
+        <!-- KPI Grid -->
+        <section class="kpi-grid">
+            <div class="kpi-card">
+                <div class="kpi-icon-wrapper kpi-blue">
+                    <i data-lucide="message-square"></i>
+                </div>
+                <div class="kpi-data">
+                    <span class="kpi-label">Total de Opiniones</span>
+                    <h2 class="kpi-value" id="kpi-total">-</h2>
+                </div>
+            </div>
+            
+            <div class="kpi-card">
+                <div class="kpi-icon-wrapper kpi-green">
+                    <i data-lucide="smile"></i>
+                </div>
+                <div class="kpi-data">
+                    <span class="kpi-label">Opiniones Positivas</span>
+                    <h2 class="kpi-value" id="kpi-positivas">-</h2>
+                </div>
+            </div>
+
+            <div class="kpi-card">
+                <div class="kpi-icon-wrapper kpi-red">
+                    <i data-lucide="frown"></i>
+                </div>
+                <div class="kpi-data">
+                    <span class="kpi-label">Opiniones Negativas</span>
+                    <h2 class="kpi-value" id="kpi-negativas">-</h2>
+                </div>
+            </div>
+
+            <div class="kpi-card">
+                <div class="kpi-icon-wrapper kpi-gray">
+                    <i data-lucide="meh"></i>
+                </div>
+                <div class="kpi-data">
+                    <span class="kpi-label">Opiniones Neutras</span>
+                    <h2 class="kpi-value" id="kpi-neutras">-</h2>
+                </div>
+            </div>
+
+            <div class="kpi-card">
+                <div class="kpi-icon-wrapper kpi-satisfaction">
+                    <i data-lucide="thumbs-up"></i>
+                </div>
+                <div class="kpi-data">
+                    <span class="kpi-label">Satisfacción Global</span>
+                    <h2 class="kpi-value" id="kpi-satisfaccion">-</h2>
+                </div>
+            </div>
+        </section>
+
+        <!-- Charts Section -->
+        <section class="charts-section">
+            <div class="chart-container-large">
+                <h3 class="chart-title">Tendencia de Satisfacción Mensual</h3>
+                <div class="canvas-wrapper">
+                    <canvas id="chart-tendencia"></canvas>
+                </div>
+            </div>
+
+            <div class="charts-grid-row">
+                <div class="chart-container">
+                    <h3 class="chart-title">Distribución de Sentimientos</h3>
+                    <div class="canvas-wrapper">
+                        <canvas id="chart-sentimiento"></canvas>
+                    </div>
+                </div>
+
+                <div class="chart-container">
+                    <h3 class="chart-title">Top 10 Productos con Mayor Opinión</h3>
+                    <div class="canvas-wrapper">
+                        <canvas id="chart-productos"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <p>&copy; 2026 Sistema de Análisis de Opiniones de Clientes con Proceso ETL</p>
+    </footer>
+
+    <script src="/js/dashboard.js"></script>
+</body>
+</html>
