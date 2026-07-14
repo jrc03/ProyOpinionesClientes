@@ -2,11 +2,6 @@ using System.Text.RegularExpressions;
 
 namespace OpinionesETL.Transformers;
 
-/// <summary>
-/// Normaliza IDs de cliente/producto provenientes de distintas fuentes a la misma
-/// forma usada por las tablas Clientes/Productos ("1", "2", ... sin prefijo ni ceros
-/// a la izquierda). Ejemplos: "C007" -> "7", "P016" -> "16", "045" -> "45".
-/// </summary>
 public static class IdNormalizer
 {
     public static string? Normalizar(string? idCrudo)
@@ -14,6 +9,7 @@ public static class IdNormalizer
         if (string.IsNullOrWhiteSpace(idCrudo))
             return null;
 
+        // Los CSV mezclan IDs como "7", "C007" y "P016"; la BD guarda solo el número.
         var soloDigitos = Regex.Replace(idCrudo.Trim(), "[^0-9]", "");
         if (soloDigitos.Length == 0)
             return null;
