@@ -61,6 +61,35 @@ END
 GO
 
 -- =========================================================================
+-- Fuentes de origen locales
+-- =========================================================================
+
+-- Simula la base relacional transaccional del sitio web. El ETL debe leer esta
+-- tabla como fuente de reseñas web, no el CSV original.
+IF OBJECT_ID('dbo.ResenasWebOrigen', 'U') IS NULL
+BEGIN
+    CREATE TABLE ResenasWebOrigen (
+        IdReview VARCHAR(50) PRIMARY KEY,
+        IdCliente VARCHAR(50) NULL,
+        IdProducto VARCHAR(50) NOT NULL,
+        Fecha DATETIME NOT NULL,
+        Comentario VARCHAR(MAX) NOT NULL,
+        Rating INT NOT NULL,
+        FechaCarga DATETIME NOT NULL DEFAULT GETDATE(),
+
+        CONSTRAINT CK_ResenasWebOrigen_Rating CHECK (Rating BETWEEN 1 AND 5)
+    );
+END
+GO
+
+IF NOT EXISTS (SELECT 1 FROM sys.indexes WHERE name = 'IX_ResenasWebOrigen_Fecha')
+    CREATE INDEX IX_ResenasWebOrigen_Fecha ON ResenasWebOrigen(Fecha);
+GO
+IF NOT EXISTS (SELECT 1 FROM sys.indexes WHERE name = 'IX_ResenasWebOrigen_IdProducto')
+    CREATE INDEX IX_ResenasWebOrigen_IdProducto ON ResenasWebOrigen(IdProducto);
+GO
+
+-- =========================================================================
 -- Tabla de hechos
 -- =========================================================================
 IF OBJECT_ID('dbo.Opiniones', 'U') IS NULL
@@ -81,6 +110,12 @@ BEGIN
         CONSTRAINT FK_Opiniones_FuenteDatos FOREIGN KEY (IdFuente) REFERENCES FuenteDatos(IdFuente),
         CONSTRAINT CK_Opiniones_Clasificacion CHECK (Clasificacion IN ('Positiva', 'Negativa', 'Neutra'))
     );
+END
+GO
+
+IF COL_LENGTH('dbo.Opiniones', 'OrigenId') IS NULL
+BEGIN
+    ALTER TABLE Opiniones ADD OrigenId VARCHAR(50) NULL;
 END
 GO
 
@@ -160,6 +195,27 @@ GO
 -- =========================================================================
 -- Procedimientos almacenados
 -- =========================================================================
+
+CREATE OR ALTER VIEW vw_FuenteResenasWeb AS
+SELECT
+    IdReview,
+    IdCliente,
+    IdProducto,
+    Fecha,
+    Comentario,
+    Rating
+FROM ResenasWebOrigen;
+GO
+
+CREATE OR ALTER PROCEDURE sp_ObtenerResenasWebOrigen
+AS
+BEGIN
+    SET NOCOUNT ON;
+    SELECT IdReview, IdCliente, IdProducto, Fecha, Comentario, Rating
+    FROM vw_FuenteResenasWeb
+    ORDER BY Fecha, IdReview;
+END
+GO
 
 CREATE OR ALTER PROCEDURE sp_ListarOpinionesPorProductoYFecha
     @IdProducto VARCHAR(50) = NULL,
