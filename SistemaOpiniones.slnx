@@ -1,0 +1,7 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/OpinionesApi/OpinionesApi.csproj" />
+    <Project Path="src/OpinionesData/OpinionesData.csproj" />
+    <Project Path="src/OpinionesProcess/OpinionesProcess.csproj" />
+  </Folder>
+</Solution>

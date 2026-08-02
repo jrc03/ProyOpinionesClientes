@@ -262,3 +262,41 @@ BEGIN
     ORDER BY Mes;
 END
 GO
+
+-- Área de staging
+IF OBJECT_ID('dbo.StagingOpiniones', 'U') IS NULL
+BEGIN
+    CREATE TABLE dbo.StagingOpiniones
+    (
+        IdStaging BIGINT IDENTITY(1,1) NOT NULL,
+        LoteId UNIQUEIDENTIFIER NOT NULL,
+        Fuente NVARCHAR(50) NOT NULL,
+        OrigenId NVARCHAR(100) NULL,
+        IdCliente NVARCHAR(50) NULL,
+        IdProducto NVARCHAR(50) NULL,
+        Fecha DATETIME2(3) NULL,
+        Comentario NVARCHAR(MAX) NULL,
+        ClasificacionOrigen NVARCHAR(50) NULL,
+        PuntajeOrigen INT NULL,
+        FechaExtraccionUtc DATETIME2(3) NOT NULL,
+        Estado NVARCHAR(20) NOT NULL
+            CONSTRAINT DF_StagingOpiniones_Estado DEFAULT N'Pendiente',
+
+        CONSTRAINT PK_StagingOpiniones
+            PRIMARY KEY CLUSTERED (IdStaging)
+    );
+END
+GO
+
+IF NOT EXISTS
+(
+    SELECT 1
+    FROM sys.indexes
+    WHERE name = 'IX_StagingOpiniones_LoteId'
+      AND object_id = OBJECT_ID('dbo.StagingOpiniones')
+)
+BEGIN
+    CREATE INDEX IX_StagingOpiniones_LoteId
+        ON dbo.StagingOpiniones(LoteId);
+END
+GO
