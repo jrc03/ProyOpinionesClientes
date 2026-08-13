@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using OpinionesData.Context;
+using OpinionesData.Facts;
 using OpinionesData.Interfaces;
 using OpinionesData.Sources;
 using OpinionesData.Staging;
@@ -20,6 +21,8 @@ public static class DependencyInjection
 
         services.AddSingleton<IWebReviewReader, EfWebReviewReader>();
         services.AddSingleton<IStagingWriter, EfStagingWriter>();
+        services.AddSingleton<IOpinionLoadReader, EfOpinionLoadReader>();
+        services.AddSingleton<IOpinionFactWriter, EfOpinionFactWriter>();
 
         return services;
     }

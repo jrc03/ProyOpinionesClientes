@@ -3,6 +3,7 @@ using OpinionesProcess.Configuration;
 using OpinionesProcess.Extractors;
 using OpinionesProcess.Interfaces;
 using OpinionesProcess.Pipeline;
+using OpinionesProcess.Transformers;
 using OpinionesProcess.Workers;
 
 var builder = Host.CreateApplicationBuilder(args);
@@ -39,6 +40,8 @@ builder.Services.AddSingleton<IExtractor, CsvExtractor>();
 builder.Services.AddSingleton<IExtractor, DatabaseExtractor>();
 builder.Services.AddSingleton<IExtractor, ApiExtractor>();
 builder.Services.AddSingleton<ExtractionPipeline>();
+builder.Services.AddSingleton<OpinionTransformer>();
+builder.Services.AddSingleton<FactLoadPipeline>();
 builder.Services.AddHostedService<ExtractionWorker>();
 
 var host = builder.Build();
